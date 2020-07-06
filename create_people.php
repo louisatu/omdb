@@ -57,36 +57,41 @@ $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic AS
     ?>
     <form action="movie_info.php" method="POST" enctype="multipart/form-data">
         <br>
-        <h3 id="title">Add a Movie</h3> <br>
+        <h3 id="title">Add a Person</h3> <br>
 
         <div>
-            <label>Native Name</label> <br>
+            <label>First Name</label> <br>
             <input style=width:400px class="form-control" type="text" name="name" maxlength="100" size="50" required title="Please enter a name"></input>
         </div>
 
         <div>
-            <label>English Name</label> <br>
+            <label>Middle Name(If Applicable)</label> <br>
             <textarea style=width:400px class="form-control" name="description" cols="55" rows="5" required title="Please enter a description"></textarea>
         </div>
 
         <div>
-            <label>Year Made</label> <br>
+            <label>Last Name</label><br>
+            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50"></input>
+        </div>
+
+        <div>
+            <label>Stage Name</label><br>
+            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50"></input>
+        </div>
+
+        <div>
+            <label>Gender</label> <br>
             <textarea style=width:400px class="form-control" name="did_you_know" cols="55" rows="2" required title="Please enter an interesting fact"></textarea>
         </div>
 
         <div>
-            <label>Language </label> <br>
+            <label>Role</label> <br>
             <input style=width:400px class="form-control" type="text" name="category" maxlength="100" size="50"></input>
         </div>
 
         <div>
-            <label>Country</label> <br>
+            <label>Song Role(If Applicable)</label> <br>
             <input style=width:400px class="form-control" type="text" name="type" maxlength="100" size="50" required title="Please enter a type"></input>
-        </div>
-
-        <div>
-            <label>Genre </label> <label id="guidance"> (Action, Comedy, Thriller, Horror, Documentary)</label> <br>
-            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50"></input>
         </div>
 
         <div>
