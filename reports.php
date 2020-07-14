@@ -22,7 +22,7 @@
               </thead>
               <tbody>
                 <?php
-                  $sql = "SELECT DISTINCT year_made, COUNT(*) as 'number of movies'FROM movies GROUP BY year_made;";
+                  $sql = "SELECT DISTINCT year_made, COUNT(*) as 'number of movies'FROM movies GROUP BY year_made DESC;";
                   $result = $db->query($sql);
                   if ($result->num_rows > 0) {
                     // output data of each row
