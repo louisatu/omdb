@@ -23,12 +23,17 @@ $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic AS
     <style>
         #title {
             text-align: center;
-            color: darkgoldenrod;
+            color: blue;
         }
 
         #guidance {
             color: grey;
             font-size: 10px;
+        }
+        body { 
+            background: url('images/background_main.jpg') no-repeat fixed center;
+            background-size: 100% 100%;
+            background-color: white; 
         }
     </style>
     <!--Check the CeremonyCreated and if Failed, display the error message-->
@@ -55,69 +60,77 @@ $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic AS
     // }
 
     ?>
-    <form action="movie_info.php" method="POST" enctype="multipart/form-data">
+    <center>
+    <form action="create_the_movie.php" method="POST" enctype="multipart/form-data">
         <br>
-        <h3 id="title">Add a Movie</h3> <br>
+        <h3 id="title">Create A Movie</h3> <br>
 
         <div>
             <label>Native Name</label> <br>
-            <input style=width:400px class="form-control" type="text" name="name" maxlength="100" size="50" required title="Please enter a name"></input>
+            <input style=width:400px class="form-control" type="text" name="native_name" maxlength="100" size="50" required title="Please enter a name"></input>
         </div>
 
         <div>
             <label>English Name</label> <br>
-            <textarea style=width:400px class="form-control" name="description" cols="55" rows="5" required title="Please enter a description"></textarea>
-        </div>
+            <input style=width:400px class="form-control" type="text" name="english_name" maxlength="100" size="50"></input>        </div>
 
         <div>
             <label>Year Made</label> <br>
-            <textarea style=width:400px class="form-control" name="did_you_know" cols="55" rows="2" required title="Please enter an interesting fact"></textarea>
-        </div>
+            <input style=width:400px class="form-control" type="text" name="year_made" maxlength="100" size="50"></input>        </div>
 
         <div>
+            <label>Tag Line </label> <br>
+            <input style=width:400px class="form-control" type="text" name="tag_line" maxlength="100" size="50"></input>
+        </div>
+       
+        <div>
             <label>Language </label> <br>
-            <input style=width:400px class="form-control" type="text" name="category" maxlength="100" size="50"></input>
+            <input style=width:400px class="form-control" type="text" name="language" maxlength="100" size="50"></input>
         </div>
 
         <div>
             <label>Country</label> <br>
-            <input style=width:400px class="form-control" type="text" name="type" maxlength="100" size="50" required title="Please enter a type"></input>
+            <input style=width:400px class="form-control" type="text" name="country" maxlength="100" size="50" required title="Please enter a type"></input>
         </div>
 
         <div>
             <label>Genre </label> <label id="guidance"> (Action, Comedy, Thriller, Horror, Documentary)</label> <br>
-            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50"></input>
+            <input style=width:400px class="form-control" type="text" name="genre" maxlength="100" size="50"></input>
+        </div>
+
+        <div>
+            <label>Plot </label> <label id="guidance"></label> <br>
+            <textarea style=width:400px class="form-control" name="plot" cols="55" rows="5" required title="Please enter plot description"></textarea>
+        </div>
+      
+        <div>
+            <label>Movie Trivia </label> <label id="guidance"></label> <br>
+            <textarea style=width:400px class="form-control" name="movie_tivia" cols="55" rows="5" required title="Please enter plot description"></textarea>
         </div>
 
         <div>
             <label>Key Words</label> <br>
-            <input style=width:400px class="form-control" type="text" name="key_words" maxlength="100" size="50" </input> </div> <div>
+            <input style=width:400px class="form-control" type="text" name="keyword" maxlength="100" size="50" </input> </div> <div>
+        </div>
+
+        <div>
+            <label>Quotes </label> <label id="guidance"></label> <br>
+            <textarea style=width:400px class="form-control" name="movie_quote_name" cols="55" rows="5" required title="Please enter plot description"></textarea>
+        </div>
+
+        <div>
             <label>Image</label> <br>
             <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file"></input><br>
             <img id="output" width="200" />
         </div>
 
-        <div>
-            <label>Status</label> <br>
-            <select style=width:400px class="form-control" id="status" name="status">
-                <option value="proposed">Proposed</option>
-                <option value="approved">Approved</option>
-                <option value="drawing_done">Drawing Done</option>
-                <option value="write_done">Write-up Done</option>
-            </select>
-        </div>
-
-        <div>
-            <label>Notes</label> <br>
-            <input style=width:400px class="form-control" type="text" name="notes" maxlength="100" size="50" required title="Please enter additional notes or N/A to represent none"></input>
-        </div>
-        <br><br>
         <div align="center" class="text-left">
             <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Create Movie</button>
         </div>
         <br> <br>
 
     </form>
+    </center>
 </div>
 
 <script>
