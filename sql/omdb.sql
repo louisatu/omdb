@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 12:11 AM
+-- Generation Time: Jul 14, 2020 at 06:34 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.17
 
@@ -1040,7 +1040,32 @@ INSERT INTO `movies` (`movie_id`, `native_name`, `english_name`, `year_made`) VA
 (999, 'local_name_999', 'engish_name_999', 1901),
 (1000, 'local_name_1000', 'engish_name_1000', 1945),
 (1001, 'local_name_1001', 'engish_name_1001', 1989),
-(1002, 'local_name_1002', 'engish_name_1002', 2033);
+(1002, 'local_name_1002', 'engish_name_1002', 2033),
+(1003, 'dolphin', 'dolphin', 2010),
+(1032, 'jaws', 'jaws', 2000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie_anagrams`
+--
+
+CREATE TABLE `movie_anagrams` (
+  `movie_id` int(6) NOT NULL COMMENT 'movie_anagrams is a WEAK entity. movie_id is both PK and FK',
+  `anagram` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'anagram of native name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `movie_anagrams`
+--
+
+INSERT INTO `movie_anagrams` (`movie_id`, `anagram`) VALUES
+(1, 'guntop'),
+(1, 'potngu'),
+(2, 'het martix'),
+(2, 'xritam eht'),
+(4, 'kesrh'),
+(4, 'reksh');
 
 -- --------------------------------------------------------
 
@@ -1050,6 +1075,7 @@ INSERT INTO `movies` (`movie_id`, `native_name`, `english_name`, `year_made`) VA
 
 CREATE TABLE `movie_data` (
   `movie_id` int(6) NOT NULL COMMENT 'This is both PK and FK; movie_data is a WEAK entity',
+  `tag_line` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `language` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genre` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1060,13 +1086,15 @@ CREATE TABLE `movie_data` (
 -- Dumping data for table `movie_data`
 --
 
-INSERT INTO `movie_data` (`movie_id`, `language`, `country`, `genre`, `plot`) VALUES
-(1, 'English', 'United States', 'Action', 'United States Naval Aviator LT Pete \"Maverick\" Mitchell and his Radar Intercept Officer LTJG Nick \"Goose\" Bradshaw fly the F-14A Tomcat aboard USS Enterprise. During an interception with two hostile MiG-28 aircraft, Maverick gets missile lock on one, while the other hostile aircraft locks onto Maverick\'s wingman, Cougar. While Maverick drives off the remaining MiG-28, Cougar is too shaken to land, and Maverick, defying orders, shepherds him back to the carrier. Cougar gives up his wings, citing his newborn child that he has never seen. Despite his dislike for Maverick\'s recklessness, CAG \"Stinger\" sends him and Goose to attend TOPGUN, the Naval Fighter Weapons School at Naval Air Station Miramar.'),
-(2, 'English', 'United States', 'Action, Sci-Fi', 'Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. As a rebel against the machines, Neo must confront the agents: super-powerful computer programs devoted to stopping Neo and the entire human rebelli'),
-(3, 'English', 'England/USA', 'Fantasy, Advent', 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.'),
-(4, 'English', 'United States', 'Comedy', 'Shrek is a 2001 American computer-animated comedy film loosely based on the 1990 fairy tale picture book of the same name by William Steig. Directed by Andrew Adamson and Vicky Jenson in their directorial debuts, it stars Mike Myers, Eddie Murphy, Cameron Diaz and John Lithgow as the voices of the lead characters. In the story, an ogre called Shrek (Myers) finds his swamp overrun by fairy tale creatures who have been banished by the corrupt Lord Farquaad (Lithgow) aspiring to be king. Shrek makes a deal with Farquaad to regain control of his swamp in return for rescuing Princess Fiona (Diaz), whom Farquaad intends to marry. With the help of Donkey (Murphy), Shrek embarks on his quest but soon falls in love with the princess, who is hiding a secret that will change his life forever. '),
-(5, 'English', 'United States', 'Action', 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.'),
-(6, 'English', 'United States', 'Superhero', 'As a child in Gotham City, Bruce Wayne falls down a dry well and is attacked by a swarm of bats, developing a fear of bats. Attending the opera with his parents, Thomas and Martha, Bruce becomes frightened by performers masquerading as bats and asks to leave. Outside, mugger Joe Chill murders Bruce\'s parents in front of him, and the orphaned Bruce is raised by the family butler, Alfred Pennyworth.\r\n\r\nFourteen years later, Chill is paroled after testifying against mafia boss Carmine Falcone. Bruce intends to murder Chill, but one of Falcone\'s assassins does so first. Bruce\'s childhood friend Rachel Dawes berates him for acting outside the justice system, saying that his father would be ashamed. After confronting Falcone, who tells him that real power comes from being feared, Bruce spends the next seven years traveling the world training in combat and immersing himself in the criminal underworld. In a Bhutan prison, he meets Henri Ducard, who recruits him to the League of Shadows led by ');
+INSERT INTO `movie_data` (`movie_id`, `tag_line`, `language`, `country`, `genre`, `plot`) VALUES
+(1, '', 'English', 'United States', 'Action', 'United States Naval Aviator LT Pete \"Maverick\" Mitchell and his Radar Intercept Officer LTJG Nick \"Goose\" Bradshaw fly the F-14A Tomcat aboard USS Enterprise. During an interception with two hostile MiG-28 aircraft, Maverick gets missile lock on one, while the other hostile aircraft locks onto Maverick\'s wingman, Cougar. While Maverick drives off the remaining MiG-28, Cougar is too shaken to land, and Maverick, defying orders, shepherds him back to the carrier. Cougar gives up his wings, citing his newborn child that he has never seen. Despite his dislike for Maverick\'s recklessness, CAG \"Stinger\" sends him and Goose to attend TOPGUN, the Naval Fighter Weapons School at Naval Air Station Miramar.'),
+(2, '', 'English', 'United States', 'Action, Sci-Fi', 'Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. As a rebel against the machines, Neo must confront the agents: super-powerful computer programs devoted to stopping Neo and the entire human rebelli'),
+(3, '', 'English', 'England/USA', 'Fantasy, Advent', 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.'),
+(4, '', 'English', 'United States', 'Comedy', 'Shrek is a 2001 American computer-animated comedy film loosely based on the 1990 fairy tale picture book of the same name by William Steig. Directed by Andrew Adamson and Vicky Jenson in their directorial debuts, it stars Mike Myers, Eddie Murphy, Cameron Diaz and John Lithgow as the voices of the lead characters. In the story, an ogre called Shrek (Myers) finds his swamp overrun by fairy tale creatures who have been banished by the corrupt Lord Farquaad (Lithgow) aspiring to be king. Shrek makes a deal with Farquaad to regain control of his swamp in return for rescuing Princess Fiona (Diaz), whom Farquaad intends to marry. With the help of Donkey (Murphy), Shrek embarks on his quest but soon falls in love with the princess, who is hiding a secret that will change his life forever. '),
+(5, '', 'English', 'United States', 'Action', 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.'),
+(6, '', 'English', 'United States', 'Superhero', 'As a child in Gotham City, Bruce Wayne falls down a dry well and is attacked by a swarm of bats, developing a fear of bats. Attending the opera with his parents, Thomas and Martha, Bruce becomes frightened by performers masquerading as bats and asks to leave. Outside, mugger Joe Chill murders Bruce\'s parents in front of him, and the orphaned Bruce is raised by the family butler, Alfred Pennyworth.\r\n\r\nFourteen years later, Chill is paroled after testifying against mafia boss Carmine Falcone. Bruce intends to murder Chill, but one of Falcone\'s assassins does so first. Bruce\'s childhood friend Rachel Dawes berates him for acting outside the justice system, saying that his father would be ashamed. After confronting Falcone, who tells him that real power comes from being feared, Bruce spends the next seven years traveling the world training in combat and immersing himself in the criminal underworld. In a Bhutan prison, he meets Henri Ducard, who recruits him to the League of Shadows led by '),
+(1003, '', 'english', 'united states', 'documentary', 'Dolphin\'s are a unique mammal and are studied by the marine biologist and the endangerment that human life can cause them.'),
+(1032, '', 'french', 'united states', 'thriller', 'Shark week has shown overtime the aggression from sharks are displayed and depicted in this retro film Jaws.');
 
 -- --------------------------------------------------------
 
@@ -1141,81 +1169,136 @@ INSERT INTO `movie_media` (`movie_media_id`, `m_link`, `m_link_type`, `movie_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `movie_numbers`
+--
+
+CREATE TABLE `movie_numbers` (
+  `movie_id` int(6) NOT NULL COMMENT 'This is both PK and FK; movie_numbers is a WEAK entity',
+  `running_time` int(3) DEFAULT NULL COMMENT 'Running Time in Minutes',
+  `length` int(2) DEFAULT NULL COMMENT 'length (depends on the native_name)',
+  `strength` int(2) DEFAULT NULL COMMENT 'strengh (depends on the native_name)',
+  `weight` int(2) DEFAULT NULL COMMENT 'weight (depends on native name)',
+  `budget` int(8) DEFAULT NULL COMMENT 'budget in local (native) currency',
+  `box_office` int(8) DEFAULT NULL COMMENT 'box office numbers in local (native) currency'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `movie_numbers`
+--
+
+INSERT INTO `movie_numbers` (`movie_id`, `running_time`, `length`, `strength`, `weight`, `budget`, `box_office`) VALUES
+(1, 110, 6, 6, 6, 152, 365),
+(2, 150, 9, 9, 9, 63, 465),
+(3, 159, 28, 28, 28, 125, 978),
+(4, 95, 5, 5, 5, 60, 484),
+(5, 171, 9, 9, 9, 103, 460),
+(6, 140, 12, 12, 12, 150, 371);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `movie_people`
 --
 
 CREATE TABLE `movie_people` (
   `movie_id` int(6) NOT NULL,
   `people_id` int(6) NOT NULL,
-  `role` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'director, producer, music director, lead actor, lead actress, supporting actor, supporting actress are possible values'
+  `role` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'director, producer, music director, lead actor, lead actress, supporting actor, supporting actress are possible values',
+  `screen_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `movie_people`
 --
 
-INSERT INTO `movie_people` (`movie_id`, `people_id`, `role`) VALUES
-(1, 1, 'Lead Actor'),
-(1, 3, 'Lead Actress'),
-(1, 4, 'Music Director'),
-(1, 5, 'Actress'),
-(1, 6, 'Director'),
-(1, 7, 'Actor'),
-(1, 8, 'Actor'),
-(1, 9, 'Producer'),
-(1, 10, 'Producer'),
-(2, 11, 'Lead Actor'),
-(2, 12, 'Actor'),
-(2, 13, 'Lead Actress'),
-(2, 14, 'Actor'),
-(2, 15, 'Director'),
-(2, 16, 'Producer'),
-(2, 17, 'Music Director'),
-(3, 19, 'Lead Actor'),
-(3, 20, 'Actor'),
-(3, 21, 'Lead Actress'),
-(3, 22, 'Director'),
-(3, 23, 'Producer'),
-(3, 24, 'Music Director'),
-(4, 25, 'Lead Actor'),
-(4, 26, 'Lead Actress'),
-(4, 27, 'Director'),
-(4, 28, 'Director'),
-(4, 29, 'Producer'),
-(4, 30, 'Producer'),
-(4, 31, 'Producer'),
-(4, 32, 'Music Director'),
-(4, 33, 'Music Director'),
-(4, 34, 'Actor'),
-(4, 35, 'Actress'),
-(4, 36, 'Actor'),
-(4, 37, 'Actress'),
-(5, 40, 'Lead Actor'),
-(5, 41, 'Lead Actor'),
-(5, 42, 'Actor'),
-(5, 43, 'Actor'),
-(5, 44, 'Actor'),
-(5, 45, 'Actor'),
-(5, 46, 'Lead Actress'),
-(5, 47, 'Actress'),
-(5, 48, 'Director'),
-(5, 49, 'Music Director'),
-(5, 50, 'Music Director'),
-(5, 51, 'Producer'),
-(5, 52, 'Producer'),
-(5, 53, 'Producer'),
-(6, 56, 'Lead Actor'),
-(6, 57, 'Actor'),
-(6, 58, 'Actor'),
-(6, 59, 'Lead Actress'),
-(6, 60, 'Actor'),
-(6, 61, 'Actor'),
-(6, 62, 'Actor'),
-(6, 63, 'Actress'),
-(6, 64, 'Director'),
-(6, 65, 'Producer'),
-(6, 66, 'Producer'),
-(6, 67, 'Music Director');
+INSERT INTO `movie_people` (`movie_id`, `people_id`, `role`, `screen_name`) VALUES
+(1, 1, 'Lead Actor', 'LT Pete \"Maverick\" Mitchell'),
+(1, 3, 'Lead Actress', 'Charlotte \"Charlie\" Blackwood'),
+(1, 4, 'Music Director', ''),
+(1, 5, 'Actress', 'Carole Bradshaw'),
+(1, 6, 'Director', ''),
+(1, 7, 'Actor', 'LT Tom \"Iceman\" Kazansky'),
+(1, 8, 'Actor', 'LT Nick \"Goose\" Bradshaw'),
+(1, 9, 'Producer', ''),
+(1, 10, 'Producer', ''),
+(2, 11, 'Lead Actor', 'Neo'),
+(2, 12, 'Actor', 'Morpheus'),
+(2, 13, 'Lead Actress', 'Trinity'),
+(2, 14, 'Actor', 'Agent Smith'),
+(2, 15, 'Director', ''),
+(2, 16, 'Producer', ''),
+(2, 17, 'Music Director', ''),
+(3, 19, 'Lead Actor', 'Harry Potter'),
+(3, 20, 'Actor', 'Ron Weasley'),
+(3, 21, 'Lead Actress', 'Hermione Granger'),
+(3, 22, 'Director', ''),
+(3, 23, 'Producer', ''),
+(3, 24, 'Music Director', ''),
+(4, 25, 'Lead Actor', 'Shrek'),
+(4, 26, 'Lead Actress', 'Princess Fiona'),
+(4, 27, 'Director', ''),
+(4, 28, 'Director', ''),
+(4, 29, 'Producer', ''),
+(4, 30, 'Producer', ''),
+(4, 31, 'Producer', ''),
+(4, 32, 'Music Director', ''),
+(4, 33, 'Music Director', ''),
+(4, 34, 'Actor', 'Donkey'),
+(4, 35, 'Actress', 'Old women'),
+(4, 36, 'Actor', 'Lord Farquaad'),
+(4, 37, 'Actress', ''),
+(5, 40, 'Lead Actor', 'Maximus'),
+(5, 41, 'Lead Actor', 'Commodus'),
+(5, 42, 'Actor', 'Proximo'),
+(5, 43, 'Actor', 'Marcus Aurelius'),
+(5, 44, 'Actor', 'Gracchus'),
+(5, 45, 'Actor', 'Juba'),
+(5, 46, 'Lead Actress', 'Lucilla'),
+(5, 47, 'Actress', 'Maximus Wife'),
+(5, 48, 'Director', ''),
+(5, 49, 'Music Director', ''),
+(5, 50, 'Music Director', ''),
+(5, 51, 'Producer', ''),
+(5, 52, 'Producer', ''),
+(5, 53, 'Producer', ''),
+(6, 56, 'Lead Actor', 'Bruce Wayne \"Batman\"'),
+(6, 57, 'Actor', 'Alfred Pennyworth'),
+(6, 58, 'Actor', 'Ra\'s al Ghul'),
+(6, 59, 'Lead Actress', 'Rachel Dawes'),
+(6, 60, 'Actor', 'James Gordon'),
+(6, 61, 'Actor', 'Dr. Jonathan Crane \"Scarecrow\"'),
+(6, 62, 'Actor', 'Lucius Fox'),
+(6, 63, 'Actress', 'young Rachel'),
+(6, 64, 'Director', ''),
+(6, 65, 'Producer', ''),
+(6, 66, 'Producer', ''),
+(6, 67, 'Music Director', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie_quotes`
+--
+
+CREATE TABLE `movie_quotes` (
+  `movie_id` int(6) NOT NULL,
+  `movie_quote_id` int(6) NOT NULL,
+  `movie_quote_name` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movie_quotes`
+--
+
+INSERT INTO `movie_quotes` (`movie_id`, `movie_quote_id`, `movie_quote_name`) VALUES
+(1, 1, 'Maverick: \"I feel the need -- the need for speed.\"'),
+(2, 2, 'Trinity: I know why you\'re here, Neo. I know what you\'ve been doing... why you hardly sleep, why you live alone, and why night after night, you sit by your computer. You\'re looking for him. ...'),
+(3, 3, 'Hagrid: You\'re a wizard harry.'),
+(3, 4, 'Severus Snape: Clearly Potter, fame isn\'t everything is it?'),
+(4, 5, 'Donkey: oh this is another one of does onion things isn\'t'),
+(5, 6, 'Maximus: Brothers, what we do in life echoes in eternity.\r\n'),
+(6, 7, 'Bruce Wayne/Batman: It\'s not who I am underneath, but what I do that defines me.\r\n'),
+(6, 8, 'Dr. Jonathan Crane/Scarecrow: There\'s nothing to fear, but fear itself!\r\n');
 
 -- --------------------------------------------------------
 
@@ -1249,23 +1332,24 @@ INSERT INTO `movie_song` (`movie_id`, `song_id`) VALUES
 --
 
 CREATE TABLE `movie_trivia` (
-  `movie_id` int(11) NOT NULL,
-  `trivia` varchar(500) NOT NULL
+  `movie_id` int(6) NOT NULL,
+  `movie_trivia_id` int(6) NOT NULL,
+  `movie_trivia` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `movie_trivia`
 --
 
-INSERT INTO `movie_trivia` (`movie_id`, `trivia`) VALUES
-(1, 'The film was a smashing success, grossing $357 million worldwide at the box office. Top Gun went on to become highest grossing film of the year, and one of the highest grossing films of the decade. Tom Cruise instantly became one of the worlds biggest movie stars. '),
-(2, 'Legendary Hong Kong stunt coordinator Woo-Ping Yuen initially refused to work on the film. Even after receiving the script, which he liked, he hoped that by asking for an exorbitant fee, it would turn off the Wachowskis. It didn\'t. He next formulated what he considered an impossible request. He said that he\'d agree only if he had complete control of the fights, and that he trained the actors for four months before they shoot. The Wachowskis complied with his request.'),
-(3, 'Alan Rickman was hand picked to play Snape by J.K. Rowling, and received special instructions from her about character. Rowling even provided him with vital details of Snape\'s backstory, not revealed until the final novel.'),
-(4, 'Chris Farley was originally cast as Shrek and even recorded almost all of the dialogue. However, after his death, the role was given to fellow Saturday Night Live (1975) performer Mike Myers. Shrek\'s \"air quotes\" in the film is an homage to Farley, whose character Bennett Brauer also used air quotes. A story reel featuring a sample of Farley\'s recorded dialogue was leaked to the public in August 2015. '),
-(4, 'The principal actors never met each other. They all read their parts separately, with a reader feeding them the lines. John Lithgow later admitted that, while he enjoyed playing Lord Farquaad, he was a little disappointed that he never actually worked directly with Mike Myers, Cameron Diaz, or Eddie Murphy. '),
-(5, 'Hans Zimmer\'s score is one of the bestselling movie soundtracks of all time.'),
-(5, 'Joaquin Phoenix ad-libbed his scream of \"Am I not merciful?\" Connie Nielsen was not expecting it, and her frightened reaction was genuine.'),
-(6, 'Due to his part in The Machinist (2004), Christian Bale was vastly underweight (about one hundred twenty pounds on his six foot frame) when he was under consideration for the part. After being cast, he was told to become as \"big as you could be\" by Christopher Nolan. Bale underwent a six month dietary and exercise regimen, and ending up weighing about two hundred twenty pounds (about forty pounds above his normal weight). It was decided that Bale had become too large (friends of his on this movi');
+INSERT INTO `movie_trivia` (`movie_id`, `movie_trivia_id`, `movie_trivia`) VALUES
+(3, 1, 'Alan Rickman was hand picked to play Snape by J.K. Rowling, and received special instructions from her about character. Rowling even provided him with vital details of Snape\'s backstory, not revealed until the final novel.'),
+(4, 2, 'Chris Farley was originally cast as Shrek and even recorded almost all of the dialogue. However, after his death, the role was given to fellow Saturday Night Live (1975) performer Mike Myers. Shrek\'s \"air quotes\" in the film is an homage to Farley, whose character Bennett Brauer also used air quotes'),
+(6, 3, 'Due to his part in The Machinist (2004), Christian Bale was vastly underweight (about one hundred twenty pounds on his six foot frame) when he was under consideration for the part. After being cast, he was told to become as \"big as you could be\" by Christopher Nolan. Bale underwent a six month dieta'),
+(5, 4, 'Hans Zimmer\'s score is one of the bestselling movie soundtracks of all time.'),
+(5, 5, 'Joaquin Phoenix ad-libbed his scream of \"Am I not merciful?\" Connie Nielsen was not expecting it, and her frightened reaction was genuine.'),
+(2, 6, 'Legendary Hong Kong stunt coordinator Woo-Ping Yuen initially refused to work on the film. Even after receiving the script, which he liked, he hoped that by asking for an exorbitant fee, it would turn off the Wachowskis. It didn\'t. He next formulated what he considered an impossible request. He said'),
+(1, 7, 'The film was a smashing success, grossing $357 million worldwide at the box office. Top Gun went on to become highest grossing film of the year, and one of the highest grossing films of the decade. Tom Cruise instantly became one of the worlds biggest movie stars. '),
+(4, 8, 'The principal actors never met each other. They all read their parts separately, with a reader feeding them the lines. John Lithgow later admitted that, while he enjoyed playing Lord Farquaad, he was a little disappointed that he never actually worked directly with Mike Myers, Cameron Diaz, or Eddie');
 
 -- --------------------------------------------------------
 
@@ -1275,7 +1359,7 @@ INSERT INTO `movie_trivia` (`movie_id`, `trivia`) VALUES
 
 CREATE TABLE `people` (
   `id` int(6) NOT NULL,
-  `screen_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Many people in the movie industry are known by short names',
+  `stage_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Many people in the movie industry are known by short names',
   `first_name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `middle_name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1287,7 +1371,7 @@ CREATE TABLE `people` (
 -- Dumping data for table `people`
 --
 
-INSERT INTO `people` (`id`, `screen_name`, `first_name`, `middle_name`, `last_name`, `gender`, `image_name`) VALUES
+INSERT INTO `people` (`id`, `stage_name`, `first_name`, `middle_name`, `last_name`, `gender`, `image_name`) VALUES
 (0, '', 'Tom', '', 'Whitlock', 'Male', 'Tom_Whitlock.jpg'),
 (1, 'LT Pete \"Maverick\" Mitchell', 'Tom', '', 'Cruise', 'Male', 'Tom_Cruise.jpg'),
 (2, '', 'Kenny', '', 'Loggins', 'Male', 'Kenny_Loggins.jpg'),
@@ -1360,28 +1444,50 @@ INSERT INTO `people` (`id`, `screen_name`, `first_name`, `middle_name`, `last_na
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `people_trivia`
+--
+
+CREATE TABLE `people_trivia` (
+  `people_id` int(6) NOT NULL,
+  `people_trivia_id` int(6) NOT NULL,
+  `people_trivia_name` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `people_trivia`
+--
+
+INSERT INTO `people_trivia` (`people_id`, `people_trivia_id`, `people_trivia_name`) VALUES
+(1, 0, 'Tom Cruise has over 100 hours of flight time filming for Top Gun.'),
+(1, 1, 'Tom Cruise is an honorary pilot'),
+(100, 2, 'Boats are big');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `songs`
 --
 
 CREATE TABLE `songs` (
   `song_id` int(5) NOT NULL,
   `title` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lyrics` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `lyrics` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `theme` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`song_id`, `title`, `lyrics`) VALUES
-(1, 'Danger Zone', 'Revvin\' up your engine Listen to her howlin\' roar Metal under tension Beggin\' you to touch and go Highway to the danger zone Ride into the danger zone Headin\' into twilight Spreadin\' out her wings tonight She got you jumpin\' off the track And shovin\' into overdrive Highway to the danger zone I\'ll take you Ridin\' into the danger zone You\'ll never say hello to you Until you get it on the red line overload You\'ll never know what you can do Until you get it up as high as you can go Out along the edges Always where I burn to be The further on the edge The hotter the intensity Highway to the danger zone Gonna take you Right into the danger zone Highway to the danger zone Right into the danger zone Highway to the danger zone Gonna take you right into the danger zone Highway to the danger zone Right into the danger zone Highway to the danger zone Gonna take you right into the danger zone Highway to the danger zone Right into the danger zone'),
-(2, 'Rock is Dead', 'All simple monkeys with alien babies\r\nAmphetamines for boys\r\nAnd crucifixes for ladies\r\nSampled and soulless\r\nWorldwide and real webbed\r\nYou sell all the living\r\nFor more safer dead\r\nAnything to belong [Repeat x2]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed\r\nGod is on the T.V.\r\nRock! Lalalalala [Repeat x4]\r\nA thousand mothers are praying for it\r\nWe\'re so full of hope\r\nAnd so full of shit\r\nBuild a new god to medicate and to ape\r\nSell us ersatz dressed up and real fake\r\nAnything to belong [Repeat x2]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed\r\nGod is on the T.V.\r\nRock! Lalalalala [Repeat x4]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed [Repeat x2]'),
-(3, 'Hedwig\'s Theme', ''),
-(4, 'All Star', 'Somebody once told me the world is gonna roll me\r\nI ain\'t the sharpest tool in the shed\r\nShe was looking kind of dumb with her finger and her thumb\r\nIn the shape of an \"L\" on her forehead\r\nWell, the years start coming and they don\'t stop coming\r\nFed to the rules and I hit the ground running\r\nDidn\'t make sense not to live for fun\r\nYour brain gets smart but your head gets dumb\r\nSo much to do, so much to see\r\nSo what\'s wrong with taking the backstreets?\r\nYou\'ll never know if you don\'t go\r\nYou\'ll never shine if you don\'t glow\r\nHey now, you\'re an all star\r\nGet your game on, go play\r\nHey now, you\'re a rock star\r\nGet the show on, get paid\r\nAnd all that glitters is gold\r\nOnly shooting stars break the mold\r\nIt\'s a cool place, and they say it gets colder\r\nYou\'re bundled up now, wait \'til you get older\r\nBut the meteor men beg to differ\r\nJudging by the hole in the satellite picture\r\nThe ice we skate is getting pretty thin\r\nThe water\'s getting warm so you might as well swim\r\nMy world\'s on fire, how'),
-(5, 'I\'m a Believer', 'I thought love was only true in fairy tales\r\nMeant for someone else but not for me\r\nLove was out to get me\r\nThat\'s the way it seemed\r\nDisappointment haunted all of my dreams\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, and I\'m a believer\r\nI couldn\'t leave her if I tried\r\nI thought love was more or less a giving thing\r\nThe more I gave the less I got oh yeah\r\nWhat\'s the use in tryin\'\r\nAll you get is pain\r\nWhen I wanted sunshine I got rain\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, I\'m a believer\r\nI couldn\'t leave her if I tried\r\nWhat\'s the use of trying\r\nAll you get is pain\r\nWhen I wanted sunshine I got rain\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, I\'m a believer\r\nI couldn\'t leave her if I tried\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nNow I\'m a believer, yeah, yeah, yeah, yeah, yeah\r\nNow I\'m a believer\r\nThen I saw he'),
-(6, 'Now We Are Free', 'Anol shalom\r\nAnol sheh lay konnud de ne um {shaddai}\r\nFlavum\r\nNom de leesh\r\nHam de nam um das\r\nLa um de\r\nFlavne...\r\nWe de ze zu bu\r\nWe de sooo a ru\r\nUn va-a pesh a lay\r\nUn vi-I bee\r\nUn da la pech ni sa\r\n(Aaahh)\r\nUn di-I lay na day\r\nUn ma la pech a nay\r\nMee di nu ku\r\nLa la da pa da le na da na\r\nVe va da pa da le na la dumda\r\nAnol shalom\r\nAnol sheh ley kon-nud de ne um.\r\nFlavum.\r\nFlavum.\r\nM-ai shondol-lee\r\nFlavu... {Live on...}\r\nLof flesh lay\r\nNof ne\r\nNom de lis\r\nHam de num um dass\r\nLa um de\r\nFlavne...\r\nFlay\r\nShom de nomm\r\nMa-lun des\r\nDwondi.\r\nDwwoondi\r\nAlas sharum du koos\r\nShaley koot-tum'),
-(7, 'Honor Him', '(Music Plays)'),
-(8, 'Batman Begins Theme ', '');
+INSERT INTO `songs` (`song_id`, `title`, `lyrics`, `theme`) VALUES
+(1, 'Danger Zone', 'Revvin\' up your engine Listen to her howlin\' roar Metal under tension Beggin\' you to touch and go Highway to the danger zone Ride into the danger zone Headin\' into twilight Spreadin\' out her wings tonight She got you jumpin\' off the track And shovin\' into overdrive Highway to the danger zone I\'ll take you Ridin\' into the danger zone You\'ll never say hello to you Until you get it on the red line overload You\'ll never know what you can do Until you get it up as high as you can go Out along the edges Always where I burn to be The further on the edge The hotter the intensity Highway to the danger zone Gonna take you Right into the danger zone Highway to the danger zone Right into the danger zone Highway to the danger zone Gonna take you right into the danger zone Highway to the danger zone Right into the danger zone Highway to the danger zone Gonna take you right into the danger zone Highway to the danger zone Right into the danger zone', 'Pop'),
+(2, 'Rock is Dead', 'All simple monkeys with alien babies\r\nAmphetamines for boys\r\nAnd crucifixes for ladies\r\nSampled and soulless\r\nWorldwide and real webbed\r\nYou sell all the living\r\nFor more safer dead\r\nAnything to belong [Repeat x2]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed\r\nGod is on the T.V.\r\nRock! Lalalalala [Repeat x4]\r\nA thousand mothers are praying for it\r\nWe\'re so full of hope\r\nAnd so full of shit\r\nBuild a new god to medicate and to ape\r\nSell us ersatz dressed up and real fake\r\nAnything to belong [Repeat x2]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed\r\nGod is on the T.V.\r\nRock! Lalalalala [Repeat x4]\r\nRock is deader than dead\r\nShock is all in your head\r\nYour sex and your dope is all that were fed\r\nSo fuck all your protests and put them to bed [Repeat x2]', 'Rock'),
+(3, 'Hedwig\'s Theme', '', 'Orchestra'),
+(4, 'All Star', 'Somebody once told me the world is gonna roll me\r\nI ain\'t the sharpest tool in the shed\r\nShe was looking kind of dumb with her finger and her thumb\r\nIn the shape of an \"L\" on her forehead\r\nWell, the years start coming and they don\'t stop coming\r\nFed to the rules and I hit the ground running\r\nDidn\'t make sense not to live for fun\r\nYour brain gets smart but your head gets dumb\r\nSo much to do, so much to see\r\nSo what\'s wrong with taking the backstreets?\r\nYou\'ll never know if you don\'t go\r\nYou\'ll never shine if you don\'t glow\r\nHey now, you\'re an all star\r\nGet your game on, go play\r\nHey now, you\'re a rock star\r\nGet the show on, get paid\r\nAnd all that glitters is gold\r\nOnly shooting stars break the mold\r\nIt\'s a cool place, and they say it gets colder\r\nYou\'re bundled up now, wait \'til you get older\r\nBut the meteor men beg to differ\r\nJudging by the hole in the satellite picture\r\nThe ice we skate is getting pretty thin\r\nThe water\'s getting warm so you might as well swim\r\nMy world\'s on fire, how', 'Pop'),
+(5, 'I\'m a Believer', 'I thought love was only true in fairy tales\r\nMeant for someone else but not for me\r\nLove was out to get me\r\nThat\'s the way it seemed\r\nDisappointment haunted all of my dreams\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, and I\'m a believer\r\nI couldn\'t leave her if I tried\r\nI thought love was more or less a giving thing\r\nThe more I gave the less I got oh yeah\r\nWhat\'s the use in tryin\'\r\nAll you get is pain\r\nWhen I wanted sunshine I got rain\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, I\'m a believer\r\nI couldn\'t leave her if I tried\r\nWhat\'s the use of trying\r\nAll you get is pain\r\nWhen I wanted sunshine I got rain\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nI\'m in love, I\'m a believer\r\nI couldn\'t leave her if I tried\r\nThen I saw her face, now I\'m a believer\r\nNot a trace, of doubt in my mind\r\nNow I\'m a believer, yeah, yeah, yeah, yeah, yeah\r\nNow I\'m a believer\r\nThen I saw he', 'Pop'),
+(6, 'Now We Are Free', 'Anol shalom\r\nAnol sheh lay konnud de ne um {shaddai}\r\nFlavum\r\nNom de leesh\r\nHam de nam um das\r\nLa um de\r\nFlavne...\r\nWe de ze zu bu\r\nWe de sooo a ru\r\nUn va-a pesh a lay\r\nUn vi-I bee\r\nUn da la pech ni sa\r\n(Aaahh)\r\nUn di-I lay na day\r\nUn ma la pech a nay\r\nMee di nu ku\r\nLa la da pa da le na da na\r\nVe va da pa da le na la dumda\r\nAnol shalom\r\nAnol sheh ley kon-nud de ne um.\r\nFlavum.\r\nFlavum.\r\nM-ai shondol-lee\r\nFlavu... {Live on...}\r\nLof flesh lay\r\nNof ne\r\nNom de lis\r\nHam de num um dass\r\nLa um de\r\nFlavne...\r\nFlay\r\nShom de nomm\r\nMa-lun des\r\nDwondi.\r\nDwwoondi\r\nAlas sharum du koos\r\nShaley koot-tum', 'Classical'),
+(7, 'Honor Him', '(Music Plays)', 'Orchestra'),
+(8, 'Batman Begins Theme ', '', 'Orchestra');
 
 -- --------------------------------------------------------
 
@@ -1472,6 +1578,32 @@ INSERT INTO `song_people` (`song_id`, `people_id`, `role`) VALUES
 (6, 49, 'Lyricist'),
 (6, 50, 'Playback Singer');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `song_trivia`
+--
+
+CREATE TABLE `song_trivia` (
+  `song_id` int(6) NOT NULL,
+  `song_trivia_id` int(6) NOT NULL,
+  `song_trivia_name` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `song_trivia`
+--
+
+INSERT INTO `song_trivia` (`song_id`, `song_trivia_id`, `song_trivia_name`) VALUES
+(1, 1, 'Top Gun—the Tom Cruise-starring tale of brash Navy aviators flying with reckless abandon and a need for speed—wouldn\'t have its machismo without Kenny Loggins\'s hard-rocking (and very \'80s) tune \"Danger Zone\" scoring the opening sequence. '),
+(2, 2, '\"Rock Is Dead\" is a song by American rock band Marilyn Manson, released as the third single from their third studio album, Mechanical Animals (1998). '),
+(3, 3, 'Hedwig\'s Theme was not a stand-alone track to begin with. It was featured as a tune in the track \"Prologue\" for Harry Potter and the Philosopher\'s Stone, before being played in the end credits. '),
+(4, 4, 'According to a 2017 interview, songwriter Greg Camp was interested in exploring several layers of meaning with the stripped-down song: the social battle cry, the sports anthem, the fan-base affirmation, the poetic lyricism, the sweeping melody, the inclusion, the artistic music videos, and more.'),
+(5, 5, 'In Shrek, Donkey sings the song during Shrek and Fiona\'s wedding. The song was also included in the soundtrack for the movie, performed by Smash Mouth. It was originally played as exit music for Shrek the Musical, but a year later, it became part of the finale.'),
+(6, 6, 'Lisa Gerrard\'s lyrics in \"Now We Are Free\" have no language known to man. She uses her own \"language\" or glosalalia, similar to what young children use to talk or sing or what some pentecostal groups use to pray. At least this is how LG has described her process in many interviews. '),
+(7, 7, 'On February 27, 2001, nearly a year after the first soundtrack\'s release, Decca released Gladiator: More Music From the Motion Picture. This CD contained an additional 18 cuts from the film (including remixes of earlier scores, such as \"Now We Are Free\").'),
+(8, 8, 'The soundtrack is also often sampled for other superhero-related productions. \"Vespertilio\" and \"Eptesicus\" were used in the screener pilot for Heroes.');
+
 --
 -- Indexes for dumped tables
 --
@@ -1481,6 +1613,12 @@ INSERT INTO `song_people` (`song_id`, `people_id`, `role`) VALUES
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movie_id`);
+
+--
+-- Indexes for table `movie_anagrams`
+--
+ALTER TABLE `movie_anagrams`
+  ADD PRIMARY KEY (`movie_id`,`anagram`);
 
 --
 -- Indexes for table `movie_data`
@@ -1498,31 +1636,51 @@ ALTER TABLE `movie_keywords`
 -- Indexes for table `movie_media`
 --
 ALTER TABLE `movie_media`
-  ADD PRIMARY KEY (`movie_media_id`);
+  ADD PRIMARY KEY (`movie_media_id`,`movie_id`) USING BTREE,
+  ADD KEY `movie_id` (`movie_id`);
+
+--
+-- Indexes for table `movie_numbers`
+--
+ALTER TABLE `movie_numbers`
+  ADD PRIMARY KEY (`movie_id`);
 
 --
 -- Indexes for table `movie_people`
 --
 ALTER TABLE `movie_people`
-  ADD PRIMARY KEY (`movie_id`,`people_id`,`role`);
+  ADD PRIMARY KEY (`movie_id`,`people_id`,`role`,`screen_name`) USING BTREE;
+
+--
+-- Indexes for table `movie_quotes`
+--
+ALTER TABLE `movie_quotes`
+  ADD PRIMARY KEY (`movie_quote_id`);
 
 --
 -- Indexes for table `movie_song`
 --
 ALTER TABLE `movie_song`
-  ADD PRIMARY KEY (`movie_id`,`song_id`);
+  ADD PRIMARY KEY (`movie_id`,`song_id`),
+  ADD KEY `song_id` (`song_id`);
 
 --
 -- Indexes for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  ADD PRIMARY KEY (`movie_id`,`trivia`);
+  ADD PRIMARY KEY (`movie_trivia_id`) USING BTREE;
 
 --
 -- Indexes for table `people`
 --
 ALTER TABLE `people`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `people_trivia`
+--
+ALTER TABLE `people_trivia`
+  ADD PRIMARY KEY (`people_trivia_id`) USING BTREE;
 
 --
 -- Indexes for table `songs`
@@ -1549,6 +1707,12 @@ ALTER TABLE `song_people`
   ADD PRIMARY KEY (`song_id`,`people_id`,`role`);
 
 --
+-- Indexes for table `song_trivia`
+--
+ALTER TABLE `song_trivia`
+  ADD PRIMARY KEY (`song_trivia_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1556,13 +1720,72 @@ ALTER TABLE `song_people`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1033;
+
+--
+-- AUTO_INCREMENT for table `movie_data`
+--
+ALTER TABLE `movie_data`
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'This is both PK and FK; movie_data is a WEAK entity', AUTO_INCREMENT=1033;
 
 --
 -- AUTO_INCREMENT for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `movie_trivia_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `movie_anagrams`
+--
+ALTER TABLE `movie_anagrams`
+  ADD CONSTRAINT `movie_anagrams_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_data`
+--
+ALTER TABLE `movie_data`
+  ADD CONSTRAINT `movie_data_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_keywords`
+--
+ALTER TABLE `movie_keywords`
+  ADD CONSTRAINT `movie_keywords_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_media`
+--
+ALTER TABLE `movie_media`
+  ADD CONSTRAINT `movie_media_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_numbers`
+--
+ALTER TABLE `movie_numbers`
+  ADD CONSTRAINT `movie_numbers_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_people`
+--
+ALTER TABLE `movie_people`
+  ADD CONSTRAINT `movie_people_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_song`
+--
+ALTER TABLE `movie_song`
+  ADD CONSTRAINT `movie_song_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_song_ibfk_2` FOREIGN KEY (`song_id`) REFERENCES `songs` (`song_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `song_keywords`
+--
+ALTER TABLE `song_keywords`
+  ADD CONSTRAINT `song_keywords_ibfk_1` FOREIGN KEY (`song_id`) REFERENCES `songs` (`song_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
