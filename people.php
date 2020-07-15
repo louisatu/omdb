@@ -22,14 +22,13 @@
             width="100%" style="width: 100px;">
               <thead>
                 <tr id="table-first-row">
-                        <th>movie_id</th>
-                        <th>Name</th>
-                        <th>English Name</th>
+                        <th>People_id</th>
+                        <th>Stage Name</th>
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>
-                        <th>Role</th>
+                        <th>Image Name</th>
                         <th>Action</th>
                         
 
@@ -38,14 +37,13 @@
 
               <tfoot>
                 <tr>
-                        <th>movie_id</th>
-                        <th>Name</th>
-                        <th>English Name</th>
+                        <th>People_id</th>
+                        <th>Stage Name</th>
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>
-                        <th>Role</th>
+                        <th>Image Name</th>
                         <th>Action</th>
 
                 </tr>
@@ -55,25 +53,24 @@
 
               <?php
 
-$sql = "SELECT movies.movie_id as movie_id, movies.native_name as native_name, movies.english_name as english_name, people.first_name as first_name, people.middle_name as middle_name, people.last_name as last_name, people.gender as gender, movie_people.role as role from movies join movie_people on (movie_people.movie_id = movies.movie_id) join people on (people.id = movie_people.people_id)" ;
+$sql = "SELECT people.id as id, people.stage_name as stage_name, people.first_name as first_name, people.middle_name as middle_name, people.last_name as last_name, people.gender as gender, people.image_name as image_name from people" ;
 $result = $db->query($sql);
 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         echo '<tr>
-                                <td>'.$row["movie_id"].'</td>
-                                <td>'.$row["native_name"].' </span> </td>
-                                <td>'.$row["english_name"].'</td>
+                                <td>'.$row["id"].'</td>
+                                <td>'.$row["stage_name"].'</td>
                                 <td>'.$row["first_name"].'</td>
                                 <td>'.$row["middle_name"].'</td>
                                 <td>'.$row["last_name"].'</td>
                                 <td>'.$row["gender"].'</td>
-                                <td>'.$row["role"].'</td>
+                                <td>'.$row["image_name"].'</td>
                                  
-                                <td><a class="btn btn-info btn-sm" href="movie_info.php?id='.$row["movie_id"].'">Display</a>
-                                <a class="btn btn-warning btn-sm" href="modify_movie.php?movie_id='.$row["movie_id"].'">Modify</a>
-                                <a class="btn btn-danger btn-sm" href="delete_movie.php?movie_id='.$row["movie_id"].'">Delete</a></td>
+                                <td><a class="btn btn-info btn-sm" href="movie_info.php?id='.$row["id"].'">Display</a>
+                                <a class="btn btn-warning btn-sm" href="modify_movie.php?movie_id='.$row["id"].'">Modify</a>
+                                <a class="btn btn-danger btn-sm" href="delete_movie.php?movie_id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
                 }//end if
