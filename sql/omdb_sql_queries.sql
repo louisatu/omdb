@@ -3,18 +3,28 @@ By: Aziz Moalim
 7.43
 Give me a summary of m_link_type. The result set should contain the count of each m_link_type. 
 
-*/;
+*/
 
 SELECT m_link_type, count(*)
 FROM movie_media
 GROUP BY m_link_type;
+
+/*
+By: Kim Pampusch
+7.59
+Give me the list of people who played “leading actor” role 
+and their corresponding “screen name”
+*/
+SELECT `movie_people`.`screen_name`, `people`.`first_name`, `people`.`last_name` 
+FROM `movie_people` INNER JOIN `people` ON (`movie_people`.`people_id` = `people`.`id`) 
+WHERE LOWER(`movie_people`.`role`) = "lead actor";
 
 /*!
 By: Kimsan Heng
 7.64
 Given a search string, the query should search across native_name (in movies table), stage_name (in peoples table) and title (in songs table). And the query should return all the matches specifying the type of the item (movie, people, song) matched. Let us say I have given the input string as “o”, your tuples may look as follows since “o” is there in “frozen”, “tom hanks”, and “let it snow”.
 
-*/;
+*/
 
 SELECT `movie_id` AS `id`,`native_name` AS `name_matched`, "movie" AS `type_of_match`
 FROM `movies`
