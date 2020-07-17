@@ -32,7 +32,7 @@ $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic AS
         }
         body { 
             background: url('images/background_main.jpg') no-repeat fixed center;
-            background-size: 60% 70%;
+            background-size: 100% 100%;
             background-color: white; 
         }
     </style>
@@ -104,13 +104,18 @@ $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic AS
         </div>
       
         <div>
+            <label>Movie Trivia </label> <label id="guidance"></label> <br>
+            <textarea style=width:400px class="form-control" name="movie_tivia" cols="55" rows="5" required title="Please enter plot description"></textarea>
+        </div>
+
+        <div>
             <label>Key Words</label> <br>
             <input style=width:400px class="form-control" type="text" name="keyword" maxlength="100" size="50" </input> </div> <div>
         </div>
 
         <div>
-            <label>Quotes </label> <br>
-            <input style=width:400px class="form-control" type="text" name="quotes" maxlength="100" size="50" </input> </div> <div>
+            <label>Quotes </label> <label id="guidance"></label> <br>
+            <textarea style=width:400px class="form-control" name="movie_quote_name" cols="55" rows="5" required title="Please enter plot description"></textarea>
         </div>
 
         <div>
