@@ -44,12 +44,12 @@
               <img src="./images/movie.png">
               <br/>Movies</li>
             </a>
-            <a href="index.php">
+            <a href="people.php">
               <li <?php if($nav_selected == "HOME"){ echo 'class="current-page"'; } ?>>
               <img src="./images/employee.png">
               <br/>People</li>
             </a>
-            <a href="index.php">
+            <a href="songs.php">
               <li <?php if($nav_selected == "HOME"){ echo 'class="current-page"'; } ?>>
               <img src="./images/music.png">
               <br/>Songs</li>

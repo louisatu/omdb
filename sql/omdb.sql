@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2020 at 06:34 PM
+-- Generation Time: Jul 18, 2020 at 08:06 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.17
 
@@ -1405,7 +1405,7 @@ INSERT INTO `people` (`id`, `stage_name`, `first_name`, `middle_name`, `last_nam
 (30, '', 'John', 'Hayward', 'Williams', 'Male', 'John_Williams.jpg'),
 (31, '', 'Jeffrey', '', 'Katzenburg', 'Male', 'Jeffrey_Katzenberg.jpg'),
 (32, '', 'Harry', '', 'Gregson-Williams', 'Male', 'Gregson_Williams.png'),
-(33, '', 'John', '', 'Powell', 'Male', 'JohnPowell.jpg'),
+(33, '', 'John', '', 'Powell', 'Male', 'John_Powell.jpg'),
 (34, 'Donkey', 'Eddie', 'Regan', 'Murphy', 'Male', 'Eddie_Murphy.jpg'),
 (35, 'Old women', 'Kathleen', '', 'Freeman', 'Female', 'Kathleen_Freeman.jpg'),
 (36, 'Lord Farquaad ', 'John', 'Arthur', 'Lithgow', 'Male', 'John_Lithgow.jpg'),
@@ -1428,10 +1428,10 @@ INSERT INTO `people` (`id`, `stage_name`, `first_name`, `middle_name`, `last_nam
 (53, '', 'Branko', '', 'Lustig', 'male', 'Branko_Lustig_img.jpg'),
 (54, '', 'Steve', '', 'Harwell', 'Male', 'Steve_Harwell.jpg'),
 (55, '', 'Mickey', '', 'Dolenz', 'Male', 'Mickey_Dolenz.jpg'),
-(56, 'Bruce Wayne \"Batman\"', 'Christian', '', 'Bale', 'Male', 'Christian_Bale'),
+(56, 'Bruce Wayne \"Batman\"', 'Christian', '', 'Bale', 'Male', 'Christian_Bale.jpg'),
 (57, 'Alfred Pennyworth', 'Michael', '', 'Caine', 'Male', 'Michael_Caine.jpg'),
-(58, 'Ra\'s al Ghul', 'Liam', '', 'Neeson', 'Male', 'Liam_Neeson'),
-(59, 'Rachel Dawes', 'Katie', '', 'Holmes', 'Female', 'Katie_Holmes'),
+(58, 'Ra\'s al Ghul', 'Liam', '', 'Neeson', 'Male', 'Liam_Neeson.jpg'),
+(59, 'Rachel Dawes', 'Katie', '', 'Holmes', 'Female', 'Katie_Holmes.jpg'),
 (60, 'James Gordon', 'Gary', '', 'Oldman', 'Male', 'Gary_Oldman.jpg'),
 (61, 'Dr. Jonathan Crane \"Scarecrow\"', 'Cillian', '', 'Murphy', 'Male', 'Cillian_Murphy.jpg'),
 (62, 'Lucius Fox', 'Morgan', '', 'Freeman', 'Male', 'Morgan_Freeman.jpg'),
