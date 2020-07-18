@@ -22,7 +22,7 @@
               </thead>
               <tbody>
                 <?php
-                  $sql = "SELECT DISTINCT year_made, COUNT(*) as 'number of movies'FROM movies GROUP BY year_made DESC;";
+                  $sql = "SELECT DISTINCT year_made, COUNT(*) as 'number of movies'FROM movies GROUP BY year_made;";
                   $result = $db->query($sql);
                   if ($result->num_rows > 0) {
                     // output data of each row
@@ -46,5 +46,53 @@
     
     </div>
 </div>
+<script type="text/javascript" language="javascript">
+    $(document).ready( function () {
+        
+        $('#info').DataTable( {
+            dom: 'lfrtBip',
+            buttons: [
+                'copy', 'excel', 'csv', 'pdf'
+            ] }
+        );
 
+        $('#info thead tr').clone(true).appendTo( '#info thead' );
+        $('#info thead tr:eq(1) th').each( function (i) {
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                    table
+                        .column(i)
+                        .search( this.value )
+                        .draw();
+                }
+            } );
+        } );
+    
+        var table = $('#info').DataTable( {
+            orderCellsTop: true,
+            fixedHeader: true,
+            retrieve: true
+        } );
+        
+    } );
+
+</script>
+
+        
+
+ <style>
+   tfoot {
+     display: table-header-group;
+   }
+
+  body{
+    background:url(background_main.jpg);
+    background-size:80px 60px; it's not mandatory to give size.
+    background-repeat:no repeat;
+  }
+
+ </style>
 <?php include("./footer.php"); ?>
