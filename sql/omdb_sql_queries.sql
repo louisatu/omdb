@@ -10,6 +10,14 @@ FROM movie_media
 GROUP BY m_link_type;
 
 /*
+By: Mahamad Osman
+7.52
+Give me a summary of the song count by the “theme”
+*/
+SELECT DISTINCT theme, COUNT(*) as 'number of songs'FROM songs GROUP BY theme DESC;
+
+
+/*
 By: Kim Pampusch
 7.59
 Give me the list of people who played “leading actor” role 
