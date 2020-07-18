@@ -34,11 +34,11 @@
           echo "<p>Plot: ".$row["plot"]."</p>";
           
 
-          $sql = "SELECT trivia from movie_trivia WHERE `movie_trivia`.`movie_id` = ".$_GET['id'].";";
+          $sql = "SELECT movie_trivia from movie_trivia WHERE `movie_trivia`.`movie_id` = ".$_GET['id'].";";
           $trivia_result = $db->query($sql);
           $trivia_string = "";
           while($row = $trivia_result->fetch_assoc()){
-            $trivia_string .= "<p>".$row["trivia"]."</p>";
+            $trivia_string .= "<p>".$row["movie_trivia"]."</p>";
           }
           if(strlen($trivia_string) > 0)
             echo "<p>Trivia:</p>".$trivia_string;
