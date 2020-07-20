@@ -49,7 +49,7 @@ global $db;
           WHERE movie_people.people_id = ".$_GET['id']." AND movies.movie_id = movie_people.movie_id;";
       $movies_result = $db->query($sql);
       if($movies_result->num_rows > 0){
-        $movie_table = "<h1>Movies</h1><table><tr><table><tr><th style='width:200px;'>Movie ID</th>
+        $movie_table = "<h1 style = 'color: #01B0F1;'>Movies</h1><table><tr><table><tr><th style='width:200px;'>Movie ID</th>
         <th style='width:200px;'>Movie Name</th>
         <th style='width:200px;'>English Name</th>
         <th style='width:200px;'>Role</th>
@@ -73,7 +73,7 @@ global $db;
       WHERE song_people.people_id = ".$_GET['id']." AND songs.song_id = song_people.song_id ";
       $movies_result = $db->query($sql);
       if($movies_result->num_rows > 0){
-        $movie_table = "<h1>Songs</h1><table><tr><th style='width:200px;'>Song ID</th>
+        $movie_table = "<h1 style = 'color: #01B0F1;'>Songs</h1><table><tr><th style='width:200px;'>Song ID</th>
         <th style='width:200px;'>Song Title</th>
         <th style='width:200px;'>Song Lyrics</th>
         <th style='width:200px;'>Role</th></tr>";
