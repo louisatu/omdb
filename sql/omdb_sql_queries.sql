@@ -47,3 +47,13 @@ UNION ALL
 SELECT `song_id`,`title` AS `name_matched`, "song" AS `type_of_match`
 FROM `songs`
 WHERE (`title`) LIKE '%o%'
+
+/*
+By: Louis Atu Tetuh 
+7.58
+Give me the list of people who played “supporting actor” role 
+and their corresponding “screen name"
+*/
+SELECT p.id, p.first_name, p.middle_name, p.last_name, mp.screen_name
+FROM `people` p
+INNER JOIN movie_people mp ON p.id = mp.people_id WHERE mp.role = 'supporting actor';

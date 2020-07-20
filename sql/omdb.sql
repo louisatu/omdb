@@ -1217,14 +1217,14 @@ INSERT INTO `movie_people` (`movie_id`, `people_id`, `role`, `screen_name`) VALU
 (1, 4, 'Music Director', ''),
 (1, 5, 'Actress', 'Carole Bradshaw'),
 (1, 6, 'Director', ''),
-(1, 7, 'Actor', 'LT Tom \"Iceman\" Kazansky'),
-(1, 8, 'Actor', 'LT Nick \"Goose\" Bradshaw'),
+(1, 7, 'Supporting Actor', 'LT Tom \"Iceman\" Kazansky'),
+(1, 8, 'Supporting Actor', 'LT Nick \"Goose\" Bradshaw'),
 (1, 9, 'Producer', ''),
 (1, 10, 'Producer', ''),
 (2, 11, 'Lead Actor', 'Neo'),
-(2, 12, 'Actor', 'Morpheus'),
+(2, 12, 'Supporting Actor', 'Morpheus'),
 (2, 13, 'Lead Actress', 'Trinity'),
-(2, 14, 'Actor', 'Agent Smith'),
+(2, 14, 'Supporting Actor', 'Agent Smith'),
 (2, 15, 'Director', ''),
 (2, 16, 'Producer', ''),
 (2, 17, 'Music Director', ''),
@@ -1559,7 +1559,7 @@ INSERT INTO `song_media` (`song_media_id`, `s_link`, `s_link_type`, `song_id`) V
 CREATE TABLE `song_people` (
   `song_id` int(6) NOT NULL,
   `people_id` int(6) NOT NULL,
-  `role` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL
+  `role` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
