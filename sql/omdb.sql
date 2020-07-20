@@ -1203,7 +1203,7 @@ INSERT INTO `movie_numbers` (`movie_id`, `running_time`, `length`, `strength`, `
 CREATE TABLE `movie_people` (
   `movie_id` int(6) NOT NULL,
   `people_id` int(6) NOT NULL,
-  `role` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'director, producer, music director, lead actor, lead actress, supporting actor, supporting actress are possible values',
+  `role` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'director, producer, music director, lead actor, lead actress, supporting actor, supporting actress are possible values',
   `screen_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
