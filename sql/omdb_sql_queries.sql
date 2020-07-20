@@ -47,3 +47,25 @@ UNION ALL
 SELECT `song_id`,`title` AS `name_matched`, "song" AS `type_of_match`
 FROM `songs`
 WHERE (`title`) LIKE '%o%'
+
+/*
+By: Louis Atu Tetuh 
+7.58
+Give me the list of people who played “supporting actor” role 
+and their corresponding “screen name"
+*/
+SELECT p.id, p.first_name, p.middle_name, p.last_name, mp.screen_name
+FROM `people` p
+INNER JOIN movie_people mp ON p.id = mp.people_id WHERE mp.role = 'supporting actor';
+
+/*
+By: Sharmarke Mohamed 
+7.65
+Give the list of all the movies which didn’t make any money (compare budget with box_office)
+*/
+SELECT movies.movie_id, movies.native_name, (movie_numbers.box_office - movie_numbers.budget) 
+AS "Loss" 
+FROM movie_numbers 
+INNER JOIN movies 
+ON movie_numbers.movie_id = movies.movie_id 
+WHERE (movie_numbers.box_office - movie_numbers.budget) < 0

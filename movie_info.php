@@ -75,7 +75,8 @@
             "lead actress" => [],
             "actor" => [],
 
-            "actress" => []  
+            "actress" => [],
+            "supporting actor" => []  
           ];
           $people_result = $db->query($sql);
           while($people_row = $people_result->fetch_assoc()){
@@ -97,6 +98,7 @@
           echo "<p>Lead Actress: ".implode($people_arrays["lead actress"], ", ")."</p>";
           echo "<p>Actor(s): ".implode($people_arrays["actor"], ", ")."</p>";
           echo "<p>Actress(s): ".implode($people_arrays["actress"], ", ")."</p>";
+          echo "<p>Supporting Actor(s): ".implode($people_arrays["supporting actor"], ", ")."</p>";
 
           echo "<h3 style = 'color: #01B0F1;'>Songs</h3>";
           $sql = "SELECT `songs`.`title`, `songs`.`lyrics`, `songs`.`song_id`
