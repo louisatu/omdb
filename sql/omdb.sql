@@ -45,7 +45,7 @@ INSERT INTO `movies` (`movie_id`, `native_name`, `english_name`, `year_made`) VA
 (4, 'Shrek', 'Shrek', 2001),
 (5, 'Gladiator', 'Gladiator', 2000),
 (6, 'Batman Begins', 'Batman Begins', 2005),
-(7, 'local_name_7', 'engish_name_7', 1973),
+(7, 'Gemeni Man', 'Gemeni Man', 2019),
 (8, 'local_name_8', 'engish_name_8', 1951),
 (9, 'local_name_9', 'engish_name_9', 1963),
 (10, 'local_name_10', 'engish_name_10', 1920),
@@ -1192,8 +1192,8 @@ INSERT INTO `movie_numbers` (`movie_id`, `running_time`, `length`, `strength`, `
 (3, 159, 28, 28, 28, 125, 978),
 (4, 95, 5, 5, 5, 60, 484),
 (5, 171, 9, 9, 9, 103, 460),
-(6, 140, 12, 12, 12, 150, 371);
-
+(6, 140, 12, 12, 12, 150, 371),
+(7, 117, 9, 9, 9, 139, 38);
 -- --------------------------------------------------------
 
 --
