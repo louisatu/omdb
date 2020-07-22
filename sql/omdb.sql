@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2020 at 08:53 AM
+-- Generation Time: Jul 22, 2020 at 11:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.17
 
@@ -1734,13 +1734,13 @@ ALTER TABLE `movie_data`
 -- AUTO_INCREMENT for table `movie_quotes`
 --
 ALTER TABLE `movie_quotes`
-  MODIFY `movie_quote_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `movie_quote_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  MODIFY `movie_trivia_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `movie_trivia_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables
@@ -1750,31 +1750,31 @@ ALTER TABLE `movie_trivia`
 -- Constraints for table `movie_anagrams`
 --
 ALTER TABLE `movie_anagrams`
-  ADD CONSTRAINT `movie_anagrams_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_anagrams` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_data`
 --
 ALTER TABLE `movie_data`
-  ADD CONSTRAINT `movie_data_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_data` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_keywords`
 --
 ALTER TABLE `movie_keywords`
-  ADD CONSTRAINT `movie_keywords_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `delete_cascade_movie_keywords` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_media`
 --
 ALTER TABLE `movie_media`
-  ADD CONSTRAINT `movie_media_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_media` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_numbers`
 --
 ALTER TABLE `movie_numbers`
-  ADD CONSTRAINT `movie_numbers_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_numbers` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_people`
@@ -1786,7 +1786,7 @@ ALTER TABLE `movie_people`
 -- Constraints for table `movie_quotes`
 --
 ALTER TABLE `movie_quotes`
-  ADD CONSTRAINT `delete_movie_quote` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_movie_quotes` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_song`
