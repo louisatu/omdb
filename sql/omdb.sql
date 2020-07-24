@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 08:06 PM
+-- Generation Time: Jul 22, 2020 at 11:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.17
 
@@ -1041,8 +1041,7 @@ INSERT INTO `movies` (`movie_id`, `native_name`, `english_name`, `year_made`) VA
 (1000, 'local_name_1000', 'engish_name_1000', 1945),
 (1001, 'local_name_1001', 'engish_name_1001', 1989),
 (1002, 'local_name_1002', 'engish_name_1002', 2033),
-(1003, 'dolphin', 'dolphin', 2010),
-(1032, 'jaws', 'jaws', 2000);
+(1003, 'dolphin', 'dolphin', 2010);
 
 -- --------------------------------------------------------
 
@@ -1093,8 +1092,7 @@ INSERT INTO `movie_data` (`movie_id`, `tag_line`, `language`, `country`, `genre`
 (4, '', 'English', 'United States', 'Comedy', 'Shrek is a 2001 American computer-animated comedy film loosely based on the 1990 fairy tale picture book of the same name by William Steig. Directed by Andrew Adamson and Vicky Jenson in their directorial debuts, it stars Mike Myers, Eddie Murphy, Cameron Diaz and John Lithgow as the voices of the lead characters. In the story, an ogre called Shrek (Myers) finds his swamp overrun by fairy tale creatures who have been banished by the corrupt Lord Farquaad (Lithgow) aspiring to be king. Shrek makes a deal with Farquaad to regain control of his swamp in return for rescuing Princess Fiona (Diaz), whom Farquaad intends to marry. With the help of Donkey (Murphy), Shrek embarks on his quest but soon falls in love with the princess, who is hiding a secret that will change his life forever. '),
 (5, '', 'English', 'United States', 'Action', 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.'),
 (6, '', 'English', 'United States', 'Superhero', 'As a child in Gotham City, Bruce Wayne falls down a dry well and is attacked by a swarm of bats, developing a fear of bats. Attending the opera with his parents, Thomas and Martha, Bruce becomes frightened by performers masquerading as bats and asks to leave. Outside, mugger Joe Chill murders Bruce\'s parents in front of him, and the orphaned Bruce is raised by the family butler, Alfred Pennyworth.\r\n\r\nFourteen years later, Chill is paroled after testifying against mafia boss Carmine Falcone. Bruce intends to murder Chill, but one of Falcone\'s assassins does so first. Bruce\'s childhood friend Rachel Dawes berates him for acting outside the justice system, saying that his father would be ashamed. After confronting Falcone, who tells him that real power comes from being feared, Bruce spends the next seven years traveling the world training in combat and immersing himself in the criminal underworld. In a Bhutan prison, he meets Henri Ducard, who recruits him to the League of Shadows led by '),
-(1003, '', 'english', 'united states', 'documentary', 'Dolphin\'s are a unique mammal and are studied by the marine biologist and the endangerment that human life can cause them.'),
-(1032, '', 'french', 'united states', 'thriller', 'Shark week has shown overtime the aggression from sharks are displayed and depicted in this retro film Jaws.');
+(1003, '', 'english', 'united states', 'documentary', 'Dolphin\'s are a unique mammal and are studied by the marine biologist and the endangerment that human life can cause them.');
 
 -- --------------------------------------------------------
 
@@ -1136,35 +1134,35 @@ INSERT INTO `movie_keywords` (`movie_id`, `keyword`) VALUES
 --
 
 CREATE TABLE `movie_media` (
+  `movie_id` int(6) NOT NULL,
   `movie_media_id` int(6) NOT NULL,
   `m_link` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `m_link_type` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'video, poster, image are three possible values.',
-  `movie_id` int(6) NOT NULL
+  `m_link_type` varchar(110) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'video, poster, image are three possible values.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `movie_media`
 --
 
-INSERT INTO `movie_media` (`movie_media_id`, `m_link`, `m_link_type`, `movie_id`) VALUES
-(1, 'https://www.youtube.com/embed/xa_z57UatDY', 'Video', 1),
-(2, 'https://www.youtube.com/embed/m8e-FF8MsqU', 'Video', 2),
-(3, 'https://www.youtube.com/embed/VyHV0BRtdxo', 'Video', 3),
-(4, 'https://www.youtube.com/embed/L_jWHffIx5E', 'Video', 4),
-(5, 'shrek_poster.jpg', 'Poster', 4),
-(6, 'shrek_still.jpg', 'Image', 4),
-(7, 'gladiator_poster.jpg', 'Poster', 5),
-(8, 'top_gun_poster.jpg', 'Poster', 1),
-(9, 'top_gun_photo.jpg', 'Image', 1),
-(10, 'https://www.youtube.com/embed/qHhHIbNuok8', 'Video', 6),
-(11, 'matrix_poster.jpg', 'Poster', 2),
-(12, 'matrix_photo.jpg', 'Image', 2),
-(13, 'hp_poster.jpg', 'Poster', 3),
-(14, 'hp_photo.jpg', 'Image', 3),
-(15, 'gladiator_photo_2.jpg', 'Image', 5),
-(16, 'gladiator_photo.jpg', 'Image', 5),
-(17, 'bb_poster.jpg', 'Poster', 6),
-(18, 'bb_photo.jpg', 'Poster', 6);
+INSERT INTO `movie_media` (`movie_id`, `movie_media_id`, `m_link`, `m_link_type`) VALUES
+(1, 1, 'https://www.youtube.com/embed/xa_z57UatDY', 'Video'),
+(2, 2, 'https://www.youtube.com/embed/m8e-FF8MsqU', 'Video'),
+(3, 3, 'https://www.youtube.com/embed/VyHV0BRtdxo', 'Video'),
+(4, 4, 'https://www.youtube.com/embed/L_jWHffIx5E', 'Video'),
+(4, 5, 'shrek_poster.jpg', 'Poster'),
+(4, 6, 'shrek_still.jpg', 'Image'),
+(5, 7, 'gladiator_poster.jpg', 'Poster'),
+(1, 8, 'top_gun_poster.jpg', 'Poster'),
+(1, 9, 'top_gun_photo.jpg', 'Image'),
+(6, 10, 'https://www.youtube.com/embed/qHhHIbNuok8', 'Video'),
+(2, 11, 'matrix_poster.jpg', 'Poster'),
+(2, 12, 'matrix_photo.jpg', 'Image'),
+(3, 13, 'hp_poster.jpg', 'Poster'),
+(3, 14, 'hp_photo.jpg', 'Image'),
+(5, 15, 'gladiator_photo_2.jpg', 'Image'),
+(5, 16, 'gladiator_photo.jpg', 'Image'),
+(6, 17, 'bb_poster.jpg', 'Poster'),
+(6, 18, 'bb_photo.jpg', 'Poster');
 
 -- --------------------------------------------------------
 
@@ -1194,6 +1192,7 @@ INSERT INTO `movie_numbers` (`movie_id`, `running_time`, `length`, `strength`, `
 (5, 171, 9, 9, 9, 103, 460),
 (6, 140, 12, 12, 12, 150, 371),
 (7, 117, 9, 9, 9, 139, 38);
+
 -- --------------------------------------------------------
 
 --
@@ -1618,7 +1617,8 @@ ALTER TABLE `movies`
 -- Indexes for table `movie_anagrams`
 --
 ALTER TABLE `movie_anagrams`
-  ADD PRIMARY KEY (`movie_id`,`anagram`);
+  ADD PRIMARY KEY (`movie_id`,`anagram`),
+  ADD KEY `movie_id` (`movie_id`);
 
 --
 -- Indexes for table `movie_data`
@@ -1655,7 +1655,8 @@ ALTER TABLE `movie_people`
 -- Indexes for table `movie_quotes`
 --
 ALTER TABLE `movie_quotes`
-  ADD PRIMARY KEY (`movie_quote_id`);
+  ADD PRIMARY KEY (`movie_quote_id`,`movie_id`) USING BTREE,
+  ADD KEY `movie_id` (`movie_id`);
 
 --
 -- Indexes for table `movie_song`
@@ -1668,7 +1669,8 @@ ALTER TABLE `movie_song`
 -- Indexes for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  ADD PRIMARY KEY (`movie_trivia_id`) USING BTREE;
+  ADD PRIMARY KEY (`movie_trivia_id`,`movie_id`) USING BTREE,
+  ADD KEY `movie_id` (`movie_id`);
 
 --
 -- Indexes for table `people`
@@ -1720,19 +1722,25 @@ ALTER TABLE `song_trivia`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1033;
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2001;
 
 --
 -- AUTO_INCREMENT for table `movie_data`
 --
 ALTER TABLE `movie_data`
-  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'This is both PK and FK; movie_data is a WEAK entity', AUTO_INCREMENT=1033;
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'This is both PK and FK; movie_data is a WEAK entity', AUTO_INCREMENT=2001;
+
+--
+-- AUTO_INCREMENT for table `movie_quotes`
+--
+ALTER TABLE `movie_quotes`
+  MODIFY `movie_quote_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  MODIFY `movie_trivia_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `movie_trivia_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables
@@ -1742,31 +1750,31 @@ ALTER TABLE `movie_trivia`
 -- Constraints for table `movie_anagrams`
 --
 ALTER TABLE `movie_anagrams`
-  ADD CONSTRAINT `movie_anagrams_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_anagrams` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_data`
 --
 ALTER TABLE `movie_data`
-  ADD CONSTRAINT `movie_data_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_data` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_keywords`
 --
 ALTER TABLE `movie_keywords`
-  ADD CONSTRAINT `movie_keywords_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_keywords` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_media`
 --
 ALTER TABLE `movie_media`
-  ADD CONSTRAINT `movie_media_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_media` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_numbers`
 --
 ALTER TABLE `movie_numbers`
-  ADD CONSTRAINT `movie_numbers_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_numbers` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_people`
@@ -1775,11 +1783,23 @@ ALTER TABLE `movie_people`
   ADD CONSTRAINT `movie_people_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `movie_quotes`
+--
+ALTER TABLE `movie_quotes`
+  ADD CONSTRAINT `delete_movie_quotes` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `movie_song`
 --
 ALTER TABLE `movie_song`
   ADD CONSTRAINT `movie_song_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `movie_song_ibfk_2` FOREIGN KEY (`song_id`) REFERENCES `songs` (`song_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_trivia`
+--
+ALTER TABLE `movie_trivia`
+  ADD CONSTRAINT `delete_movie_trivia` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `song_keywords`
