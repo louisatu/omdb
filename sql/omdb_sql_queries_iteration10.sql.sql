@@ -3,6 +3,9 @@
 By: Aziz Moalim
 7.43
 
+EXPLAIN BEFORE & AFTER HERE GITHUB FOLDER:aziziteration10explainpictures
+
+
 
 Used LIMIT to stop the query from scanning addiontal rows since we only care about 3 of them and to prevent duplicate - lowers time
 Adding an index:
