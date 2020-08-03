@@ -1,24 +1,36 @@
 /*!
 By: Aziz Moalim
-7.43
-Give me a summary of m_link_type. The result set should contain the count of each m_link_type. 
+Query 7
 
-This is the over 100,000 data set:
-This is used on 1,175,493 rows and returns the below time
-Showing rows 0 - 2 (3 total, Query took 0.8430 seconds.)
+Used LIMIT to stop the query from scanning addiontal rows and to prevent duplicate 
 
-This is the orginal data:
+SELECT DISTINCT `people`.*, `song_people`.role, `songs`.*
+FROM `songs`
+    INNER JOIN `song_people`
+          ON songs.song_id = song_people.song_id
+    INNER JOIN `people`
+        ON song_people.people_id = people.id
+Showing rows 0 - 0 (1 total, Query took 0.0013 seconds.)
 
-This is used on 18 rows and returns the below time
-Showing rows 0 - 2 (3 total, Query took 0.0011 seconds.)
 
 
+NEW QUERY:
+
+SELECT DISTINCT `people`.*, `song_people`.role, `songs`.*
+FROM `songs`
+    INNER JOIN `song_people`
+          ON songs.song_id = song_people.song_id
+    INNER JOIN `people`
+        ON song_people.people_id = people.id
+        
+limit 1
+
+Showing rows 0 - 9 (10 total, Query took 0.0018 seconds.)
+ 
 
 */
 
-SELECT m_link_type, count(*)
-FROM movie_media
-GROUP BY m_link_type;
+
 
 /*
 
