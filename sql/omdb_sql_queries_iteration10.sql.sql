@@ -1,32 +1,31 @@
+
 /*!
 By: Aziz Moalim
-Query 7
-
-Used LIMIT to stop the query from scanning addiontal rows and to prevent duplicate 
-
-SELECT DISTINCT `people`.*, `song_people`.role, `songs`.*
-FROM `songs`
-    INNER JOIN `song_people`
-          ON songs.song_id = song_people.song_id
-    INNER JOIN `people`
-        ON song_people.people_id = people.id
-Showing rows 0 - 0 (1 total, Query took 0.0013 seconds.)
+7.43
 
 
+Used LIMIT to stop the query from scanning addiontal rows and to prevent duplicate - lowers time
 
-NEW QUERY:
+This is the over 100,000 data set:
+This is used on 1,175,493 rows and returns the below time
+Showing rows 0 - 2 (3 total, Query took 0.8430 seconds.)
 
-SELECT DISTINCT `people`.*, `song_people`.role, `songs`.*
-FROM `songs`
-    INNER JOIN `song_people`
-          ON songs.song_id = song_people.song_id
-    INNER JOIN `people`
-        ON song_people.people_id = people.id
-        
-limit 1
+SELECT m_link_type, count(*)
+FROM movie_media
+GROUP BY m_link_type
+LIMIt 3
 
-Showing rows 0 - 9 (10 total, Query took 0.0018 seconds.)
- 
+
+This is the orginal data:
+
+This is used on 18 rows and returns the below time
+Showing rows 0 - 2 (3 total, Query took 0.0011 seconds.)
+
+SELECT m_link_type, count(*)
+FROM movie_media
+GROUP BY m_link_type;
+
+
 
 */
 
