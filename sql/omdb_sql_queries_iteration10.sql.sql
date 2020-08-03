@@ -105,25 +105,26 @@ New Query 10:
 SELECT song_trivia.song_trivia_id, song_trivia.song_trivia_name, songs.song_id, songs.title, songs.lyrics, songs.theme 
 FROM song_trivia 
 JOIN songs on (songs.song_id = song_trivia.song_id) 
-LIMIT 8 
+WHERE song_trivia.song_trivia_id BETWEEN 1 AND 8 
+LIMIT 8
 
-CHANGES: I added the limit of 8 to reduce duplicates.
-I then changed the syntax, making the FROM, and JOIN capital letters, which reduced the time further.
+CHANGES: I added WHERE and BETWEEN, to further lower the amount of rows(i want the 8 unique rows).
+I then changed the syntax, making the FROM, and JOIN capital letters. LIMIT decreased the time by 1.
 
 Explain:
 id = 1 and 1
 select_type = SIMPLE and SIMPLE
 table = song_trivia and songs
 partitions = NULL and NULL
-type = ALL and eq_ref
-possible_keys = NULL and PRIMARY
+type = range and eq_ref
+possible_keys = PRIMARY and PRIMARY
 key = NULL and PRIMARY
-key_len = NULL and 4
+key_len = 4 and 4
 ref = NULL and omdb.song_trivia.song_id
-rows = 256 and 1
+rows = 8 and 1
 filtered = 100 and 100
-Extra = NULL and NULL
-Showing rows 0 - 7 (8 total, Query took 0.0003 seconds.)
+Extra = using WHERE and NULL
+Showing rows 0 - 7 (8 total, Query took 0.0004 seconds.)
 
 
 */
