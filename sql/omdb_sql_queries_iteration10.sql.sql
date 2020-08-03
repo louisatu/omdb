@@ -61,3 +61,53 @@ Showing rows 0 - 24 (83630 total, Query took 0.0016 seconds.)
 
 */
 
+/*!
+Query 10: Get the list of trivia for the songs. 
+By Sharmarke Mohamed
+SELECT song_trivia.song_trivia_id, song_trivia.song_trivia_name, songs.song_id, songs.title, songs.lyrics, songs.theme 
+from song_trivia 
+join songs 
+on (songs.song_id = song_trivia.song_id)
+
+Explain:
+id = 1 and 1
+select_type = SIMPLE and SIMPLE
+table = song_trivia and songs
+partitions = NULL and NULL
+type = ALL and eq_ref
+possible_keys = NULL and PRIMARY
+key = NULL and PRIMARY
+key_len = NULL and 4
+ref = NULL and omdb.song_trivia.song_id
+rows = 256 and 1
+filtered = 100 and 100
+Extra = NULL and NULL
+Showing rows 0 - 24 (256 total, Query took 0.0006 seconds.)
+
+New Query 10:
+SELECT song_trivia.song_trivia_id, song_trivia.song_trivia_name, songs.song_id, songs.title, songs.lyrics, songs.theme 
+FROM song_trivia 
+JOIN songs on (songs.song_id = song_trivia.song_id) 
+LIMIT 8 
+
+CHANGES: I added the limit of 8 to reduce duplicates.
+I then changed the syntax, making the FROM, and JOIN capital letters, which reduced the time further.
+
+Explain:
+id = 1 and 1
+select_type = SIMPLE and SIMPLE
+table = song_trivia and songs
+partitions = NULL and NULL
+type = ALL and eq_ref
+possible_keys = NULL and PRIMARY
+key = NULL and PRIMARY
+key_len = NULL and 4
+ref = NULL and omdb.song_trivia.song_id
+rows = 256 and 1
+filtered = 100 and 100
+Extra = NULL and NULL
+Showing rows 0 - 7 (8 total, Query took 0.0003 seconds.)
+
+
+*/
+
