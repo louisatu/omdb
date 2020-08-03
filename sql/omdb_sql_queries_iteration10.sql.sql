@@ -4,7 +4,10 @@ By: Aziz Moalim
 7.43
 
 
-Used LIMIT to stop the query from scanning addiontal rows and to prevent duplicate - lowers time
+Used LIMIT to stop the query from scanning addiontal rows since we only care about 3 of them and to prevent duplicate - lowers time
+Adding an index:
+
+ALTER TABLE movie_media ADD INDEX idx(m_link_type);
 
 This is the over 100,000 data set:
 This is used on 1,175,493 rows and returns the below time
