@@ -45,7 +45,7 @@ rows = 62366 and 1
 Extra = Using temporary
 Showing rows 0 - 24 (83630 total, Query took 0.0018 seconds.)
 [3]
-So I removed DISTINCT and the WHERE CLAUSE
+So I removed DISTINCT and the WHERE CLAUSE also added LIMIT 3 for duplicates
 [4]
 id = 1 and 1
 select_type = simple and simple
@@ -57,7 +57,7 @@ key_len = Null and 4
 ref = Null and omdb2.people_trivia.people_id
 rows = 62366 and 1
 Extra = 
-Showing rows 0 - 24 (83630 total, Query took 0.0016 seconds.)
+Showing rows 0 - 2 (3 total, Query took 0.0011 seconds.)
 
 */
 
