@@ -1786,7 +1786,7 @@ ALTER TABLE `movie_people`
 -- Constraints for table `movie_quotes`
 --
 ALTER TABLE `movie_quotes`
-  ADD CONSTRAINT `delete_movie_quotes` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_quotes` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_song`
@@ -1799,7 +1799,7 @@ ALTER TABLE `movie_song`
 -- Constraints for table `movie_trivia`
 --
 ALTER TABLE `movie_trivia`
-  ADD CONSTRAINT `delete_movie_trivia` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delete_cascade_movie_trivia` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `song_keywords`
