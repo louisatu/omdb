@@ -29,10 +29,10 @@ WHERE stage_name = @stage_name;
 -- See the URL reference 4 given above
 
 -- Update movies
-INSERT INTO movies (native_name, year_made) SELECT @name, @year WHERE @movie_count = 0;
+INSERT INTO movies (native_name, year_made) SELECT @name, @year WHERE @movie_count = 0 AND @person_count < 2;
 
 -- Update people
-INSERT INTO people (stage_name) SELECT @stage_name WHERE @person_count = 0;
+INSERT INTO people (stage_name) SELECT @stage_name WHERE @person_count = 0 AND @movie_count < 2;
 
 -- Add relation
 SELECT @movie_id := movie_id FROM movies WHERE native_name = @name AND year_made = @year;
@@ -44,7 +44,8 @@ FROM movie_people
 WHERE movie_id = @movie_id AND people_id = @people_id AND screen_name = @screen_name;
 
 INSERT INTO movie_people (movie_id, people_id, role, screen_name) 
-    SELECT @movie_id, @people_id, @role, @screen_name WHERE @relationship_count = 0;
+    SELECT @movie_id, @people_id, @role, @screen_name 
+    WHERE @relationship_count = 0 AND @movie_count < 2 AND @person_count < 2;
 
 
 SELECT @execution_status := 
